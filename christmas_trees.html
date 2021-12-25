@@ -25,16 +25,21 @@
         }
 
         .canvas {
-            height: 100vw;
-            width: auto;
+            color: rgba(205,205,215,.15);
+            width: 100vw;
+            /* height: 70vh; */
+            height: auto;
             /* height="356" width="446" */
         }
     </style>
 </head>
 
 <body marginwidth="0" marginheight="0">
-    <canvas id="c" class="canvas">
-    </canvas>
+    <div style="height: 100vh;display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <canvas id="canvas_1" class="canvas">
+        </canvas>
+
+    </div>
 </body>
 <!-- <script type="text/javascript" src="js/anime.min.js"></script> -->
 <script>
@@ -48,10 +53,9 @@
 
     let theme = getUrlParam('text')
     let b = document.body;
-    let c = document.getElementById('c')
-    console.log(window.getComputedStyle(c, null));
-    let ctx = c.getContext('2d');
-    document.body.clientWidth; // fix bug in chrome.
+    let canvas_1 = document.getElementById('canvas_1')
+    let ctx = canvas_1.getContext('2d');
+    let client_width = document.body.clientWidth; // fix bug in chrome.
     // start of submission //
     M = Math;
     Q = M.random;
@@ -59,8 +63,8 @@
     U = 16;
     T = M.sin;
     E = M.sqrt;
-    for (O = k = 0; x = z = j = i = k < 200;) with(M[k] = k ? c.cloneNode(0) : c) {
-        width = height = k ? 32 : W = 446;
+    for (O = k = 0; x = z = j = i = k < 300;) with(M[k] = k ? canvas_1.cloneNode(0) : canvas_1) {
+        width = height = k ? 32 : W = 465;
         with(getContext('2d')) if (k > 10 | !k)
                 for (font = '60px Impact', V = 'rgba('; I = i * U, fillStyle = k ? k == 13 ? V +
                     '205,205,215,.15)' : V + (147 + I) + ',' + (k % 2 ? 128 + I : 0) + ',' + I + ',.5)' :
@@ -75,6 +79,8 @@
             y += Q() * U - 8, z += T(R - 11) * P + Q() * 6 - 3, j / H * 20 + ((j += U) > H & Q() > .8 ?
                 Q(P = 9) * 4 : 0) >> 1
         ]
+
+        
     }
     setInterval(function G(m, l) {
         A = T(D - 11);
